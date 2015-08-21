@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Depurant codi ...</string>
+
+    <string name="hello_world">Exemple de depuració</string>
+    <string name="action_settings">Configuració</string>
+    <string name="button_text">Polsar</string>
+</resources>
