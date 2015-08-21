@@ -2,7 +2,7 @@ package pmdm.mviel.debugging;
 
 /* Aquest projecte té la finalitat de practicar la depuració de codi amb Android Studio.
     Introdueix a l'alumne en l'ús de la classe Log d'Android,
-    el seguiment de missatges al log del sistema (System Log),
+    el seguiment de missatges al log del sistema (Log Cat),
     i la depuració pas a pas per trobar errades en temps d'execució.
     Agost'2015
  */
