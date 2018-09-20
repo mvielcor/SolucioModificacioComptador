@@ -12,6 +12,7 @@ package pmdm.mviel.debugging;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,16 +25,25 @@ public class MainActivity extends Activity {
     private TextView marcador_polsacions;  // atribut que referencia el 'label' on mostrem el numero
                                            // de polsacions que ha fet l'usuari
 
+    private final boolean DEBUG=true;
+    private final String ETIQUETA="depurant";
+
+
     // El mètode onCreate, és dels primers mètodes que s'executen quan creem un activity
     // Fent un paral·lelisme amb Swing, seria com el constructor d'una classe Frame
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
         //Estes dues línies les inclourem SEMPRE al principi del mètode onCreate!!!!
         super.onCreate(savedInstanceState);  // Cridarem SEMPRE, primer que res, al onCreate de la classe Activity
         setContentView(R.layout.activity_main);  //Ací llegim l'xml (activity_main.xml) on hem definit
                                                 // el contingut que tindrà MainActivity
 
         marcador_polsacions = (TextView)findViewById(R.id.marcadorPolsacions); //Ací enllacem l'objecte xml macadorPolsacions
+
+        if (DEBUG) Log.d(ETIQUETA,"Abans d'inicialitzar comptadorDeClics val:"+comptadorDeClicks);
         // amb un objecte JAVA de la classe TextView, per poder manipular-lo després.
         comptadorDeClicks=0; // Inicialitzem el comptador de clicks a 0
 
@@ -44,11 +54,13 @@ public class MainActivity extends Activity {
     //el setter de l'atribut comptadorDeClicks
     public void setComptadorDeClicks(int valor){
         this.comptadorDeClicks=valor;
+        if (DEBUG) Log.d(ETIQUETA,"S’ha incrementat el comptador a:"+valor);
     }
 
 
     //el getter de l'atribut comptadorDeClicks
     public int getComptadorDeClicks(){
+        if (DEBUG) Log.d(ETIQUETA,"Estic al getComptadorDeClicks");
         return this.comptadorDeClicks;
     }
 
@@ -57,6 +69,7 @@ public class MainActivity extends Activity {
     //Mètode que hem definit a fitxer activity_main.xml, i que s'executarà quan l'usuari faça click
     //sobre el botó que té el text "Polsar"
     public void boto_Polsat(View v){
+        if (DEBUG) Log.d(ETIQUETA,"S'ha polsat el botó!!!");
 
         int valor_comptador= this.getComptadorDeClicks();  //agafem el valor de l'atribut comptadorDeClicks
         valor_comptador++;      // l'incrementem en una unitat
