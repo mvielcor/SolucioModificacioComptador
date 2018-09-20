@@ -5,6 +5,7 @@ package pmdm.mviel.debugging;
     el seguiment de missatges al log del sistema (Log Cat),
     i la depuració pas a pas per trobar errades en temps d'execució.
     Agost'2015
+    Última modificació: Setembre'18
  */
 
 
