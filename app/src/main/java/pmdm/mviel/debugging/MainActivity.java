@@ -30,7 +30,7 @@ public class MainActivity extends Activity {
     private TextView marcador_clicks_restants;
     private final boolean DEBUG=true;
     private final String ETIQUETA="depurant";
-
+    private final int CLIKS_RESTANTS=5;
 
     // El mètode onCreate, és dels primers mètodes que s'executen quan creem un activity
     // Fent un paral·lelisme amb Swing, seria com el constructor d'una classe Frame
@@ -49,7 +49,7 @@ public class MainActivity extends Activity {
         if (DEBUG) Log.d(ETIQUETA,"Abans d'inicialitzar comptadorDeClics val:"+comptadorDeClicks);
         // amb un objecte JAVA de la classe TextView, per poder manipular-lo després.
         comptadorDeClicks=0; // Inicialitzem el comptador de clicks a 0
-        comptadorClicksRestants=5;
+        comptadorClicksRestants=CLIKS_RESTANTS;
         marcador_polsacions.setText(""+comptadorDeClicks);  // Posem el valor 0 dins l'objecte TextView
         marcador_clicks_restants.setText(""+comptadorClicksRestants);
     }
@@ -99,6 +99,15 @@ public class MainActivity extends Activity {
         }
     }
 
+
+    public void boto_Resetejar(View v){
+        this.setComptadorDeClicks(0);
+        this.setComptadorClicksRestants(CLIKS_RESTANTS);
+        Button boto = (Button)findViewById(R.id.button);
+        boto.setEnabled(true);
+        marcador_polsacions.setText(""+this.getComptadorDeClicks());  // Posem el valor 0 dins l'objecte TextView
+        marcador_clicks_restants.setText(""+this.getComptadorClicksRestants());
+    }
 
     // Aquest mètode ens crea el menú d'opcions. Ho vorem més endavant!!!
     @Override
